@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Polterabend · Christina &amp; Timo</title>
+  <meta name="description" content="Polterabend von Christina und Timo am 19. September 2026 in Titisee-Neustadt. Alle Infos, Mitbringliste und Anmeldung." />
+
+  <meta property="og:title" content="Polterabend · Christina &amp; Timo" />
+  <meta property="og:description" content="Wir feiern unseren Polterabend – hier findet ihr alle Infos." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="CundT_Logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="siteNav">
+    <nav class="site-nav__inner" aria-label="Hauptnavigation">
+      <a class="site-nav__brand" href="#hero" aria-label="Christina &amp; Timo – nach oben"></a>
+      <ul class="site-nav__links">
+        <li><a href="#hero">Start</a></li>
+        <li><a href="#infos">Infos</a></li>
+        <li><a href="#anreise">Anreise</a></li>
+        <li><a href="#mitbringen">Mitbringliste</a></li>
+        <li><a href="#anmeldung">Anmeldung</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SCHWEBENDES LOGO -->
+  <a class="floating-logo" id="floatingLogo" href="#hero" aria-label="Christina und Timo – nach oben">
+    <img src="CundT_Logo.png" alt="Logo Christina und Timo" />
+  </a>
+
+
+  <!-- 1 · HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content reveal">
+      <p class="eyebrow eyebrow--light">Polterabend</p>
+      <h1 class="hero__title">Christina &amp; Timo</h1>
+      <p class="hero__date">19. September 2026 · Beginn ab 19:00 Uhr</p>
+      <a href="#anmeldung" class="btn btn--primary" data-scroll>Jetzt anmelden</a>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Scrollen</span>
+    </div>
+  </section>
+
+
+  <!-- 2 · BEGRÜSSUNG -->
+  <section class="section welcome" id="willkommen">
+    <div class="container welcome__grid">
+
+      <div class="welcome__media reveal">
+        <img
+          src="Welcome.jpg"
+          alt="Christina und Timo"
+          loading="lazy"
+          onerror="this.classList.add('img--placeholder')"
+        />
+      </div>
+
+      <div class="welcome__text reveal">
+        <p class="eyebrow">Herzlich willkommen</p>
+        <h2 class="section__title">Liebe Familie, liebe Freunde,</h2>
+        <p class="lead">
+          wir freuen uns sehr, gemeinsam mit euch unseren Polterabend zu feiern.
+          Bevor wir uns das Ja-Wort geben, möchten wir einen unvergesslichen Abend
+          mit euch verbringen.
+        </p>
+        <p>
+          Freut euch auf einen gemütlichen Abend mit gutem Essen, Getränken und
+          einer tollen Feier. Auf dieser Seite findet ihr alle wichtigen
+          Informationen rund um unseren Polterabend. Bitte meldet euch bis
+          spätestens 22.08.2026 an.
+        </p>
+        <p class="signature">Christina + Timo</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 3 · INFO-KACHELN (drei) -->
+  <section class="section tiles" id="infos">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Auf einen Blick</p>
+        <h2 class="section__title">Der Abend im Überblick</h2>
+      </div>
+
+      <div class="tiles__grid tiles__grid--three">
+
+        <article class="tile reveal">
+          <span class="tile__mark" aria-hidden="true">I</span>
+          <h3 class="tile__title">Poltern erlaubt</h3>
+          <p class="tile__text">Scherben bringen Glück – bringt gerne euer Porzellan zum Poltern mit.</p>
+        </article>
+
+        <article class="tile reveal">
+          <span class="tile__mark" aria-hidden="true">II</span>
+          <h3 class="tile__title">Feiern &amp; Tanzen</h3>
+          <p class="tile__text">Gemeinsam feiern wir bis spät in die Nacht.</p>
+        </article>
+
+        <article class="tile reveal">
+          <span class="tile__mark" aria-hidden="true">III</span>
+          <h3 class="tile__title">Essen &amp; Getränke</h3>
+          <p class="tile__text">Für Essen und Getränke ist selbstverständlich gesorgt.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4 · ANREISE -->
+  <section class="section travel" id="anreise">
+    <div class="container travel__grid">
+
+      <div class="travel__info reveal">
+        <p class="eyebrow">Anreise</p>
+        <h2 class="section__title">Wo wir feiern</h2>
+
+        <div class="travel__place">
+          <p class="travel__label">Polterabend · ab 19:00 Uhr</p>
+          <address class="travel__address">
+            <strong>Gewerbestraße</strong><br />
+            79822 Titisee-Neustadt
+          </address>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=47.90876870230776,8.164779505826647"
+            class="btn btn--primary"
+            target="_blank"
+            rel="noopener"
+          >Route mit Google Maps</a>
+        </div>
+
+        <p class="travel__hint">
+          Parkmöglichkeiten gibt es direkt vor Ort – bildet gerne
+          Fahrgemeinschaften.
+        </p>
+      </div>
+
+      <div class="travel__media reveal">
+        <img
+          src="location.jpg"
+          alt="Unsere Polterabend-Location in Titisee-Neustadt"
+          loading="lazy"
+          onerror="this.classList.add('img--placeholder')"
+        />
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 5 · FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Gut zu wissen</p>
+        <h2 class="section__title">Häufige Fragen</h2>
+      </div>
+
+      <div class="faq__grid">
+
+        <div class="faq__item reveal">
+          <button class="faq__question" type="button" aria-expanded="false">
+            <span>Gibt es einen Dresscode?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Nein. Kommt einfach so, wie ihr euch wohlfühlt.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__question" type="button" aria-expanded="false">
+            <span>Darf gepoltert werden?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Ja. Porzellan ist ausdrücklich erwünscht. Bitte kein Glas oder Spiegel.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__question" type="button" aria-expanded="false">
+            <span>Bis wann müssen wir uns anmelden?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Bitte bis spätestens <strong>22.08.2026</strong>.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__question" type="button" aria-expanded="false">
+            <span>Muss ich etwas mitbringen?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Nur gute Laune. Falls ihr etwas zum Buffet beitragen möchtet, könnt
+            ihr euch gerne in unserer Mitbringliste eintragen.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__question" type="button" aria-expanded="false">
+            <span>Gibt es Parkplätze?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Ja. Direkt an der Location stehen ausreichend Parkmöglichkeiten zur Verfügung.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal">
+          <button class="faq__question" type="button" aria-expanded="false">
+            <span>Kinder willkommen?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__answer">
+            <p>Ja, natürlich.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 6 · MITBRINGLISTE (eingebettet, Supabase) -->
+  <section class="section bringcta" id="mitbringen">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Buffet</p>
+        <h2 class="section__title">Mitbringliste</h2>
+        <p class="lead">
+          Falls ihr gerne einen Salat, Kuchen oder Fingerfood mitbringen möchtet,
+          könnt ihr euch hier eintragen.
+        </p>
+      </div>
+
+      <p class="bl-status" id="blStatus" role="status" aria-live="polite">Lädt …</p>
+      <div class="bl-embed" id="blList"></div>
+    </div>
+  </section>
+
+
+  <!-- 7 · ANMELDUNG / RSVP -->
+  <section class="section rsvp" id="anmeldung">
+    <div class="container rsvp__inner">
+      <div class="section__head reveal">
+        <p class="eyebrow">Rückmeldung</p>
+        <h2 class="section__title">Anmeldung zum Polterabend</h2>
+        <p class="lead">Wir freuen uns auf eure Rückmeldung bis spätestens 22.08.2026.</p>
+      </div>
+
+      <div class="rsvp__form reveal">
+
+        <p class="bl-status" id="rsvpStatus" role="status" aria-live="polite" hidden></p>
+
+        <form id="rsvpForm" class="rsvp__formgrid" novalidate>
+          <div class="rsvp__row">
+            <label class="bl-field">
+              <span class="bl-field__label">Vorname *</span>
+              <input class="bl-input" type="text" id="rsvpFirst" autocomplete="given-name" required />
+            </label>
+            <label class="bl-field">
+              <span class="bl-field__label">Nachname *</span>
+              <input class="bl-input" type="text" id="rsvpLast" autocomplete="family-name" required />
+            </label>
+          </div>
+
+          <fieldset class="rsvp__toggle">
+            <legend class="bl-field__label">Seid ihr dabei? *</legend>
+            <label class="rsvp__opt">
+              <input type="radio" name="attending" value="yes" />
+              <span>Ja, wir kommen</span>
+            </label>
+            <label class="rsvp__opt">
+              <input type="radio" name="attending" value="no" />
+              <span>Leider nein</span>
+            </label>
+          </fieldset>
+
+          <div class="rsvp__yes" id="rsvpYesFields" hidden>
+            <div class="rsvp__row">
+              <label class="bl-field">
+                <span class="bl-field__label">Erwachsene</span>
+                <input class="bl-input" type="number" id="rsvpAdults" min="0" step="1" value="1" />
+              </label>
+              <label class="bl-field">
+                <span class="bl-field__label">Kinder</span>
+                <input class="bl-input" type="number" id="rsvpChildren" min="0" step="1" value="0" />
+              </label>
+            </div>
+            <label class="bl-field">
+              <span class="bl-field__label">Alter der Kinder (optional)</span>
+              <input class="bl-input" type="text" id="rsvpAges" placeholder="z. B. 4 und 7 Jahre" />
+            </label>
+            <label class="bl-field">
+              <span class="bl-field__label">Essenswünsche (optional)</span>
+              <input class="bl-input" type="text" id="rsvpFood" placeholder="z. B. vegetarisch, vegan" />
+            </label>
+            <label class="bl-field">
+              <span class="bl-field__label">Allergien / Unverträglichkeiten (optional)</span>
+              <input class="bl-input" type="text" id="rsvpAllergies" />
+            </label>
+          </div>
+
+          <label class="bl-field">
+            <span class="bl-field__label">Nachricht an uns (optional)</span>
+            <textarea class="bl-textarea" id="rsvpMessage" rows="3"></textarea>
+          </label>
+
+          <p class="bl-form__error" id="rsvpError" hidden></p>
+          <button class="btn btn--primary" type="submit" id="rsvpSubmit">Anmeldung absenden</button>
+        </form>
+
+        <div class="rsvp__success" id="rsvpSuccess" hidden>
+          <span class="rsvp__success-mark" aria-hidden="true">✦</span>
+          <h3 class="rsvp__success-title">Vielen Dank!</h3>
+          <p class="rsvp__success-text" id="rsvpSuccessText"></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 8 · AKTUELLE INFORMATIONEN -->
+  <section class="section updates" id="aktuelles">
+    <div class="container updates__inner reveal">
+      <p class="eyebrow">Aktuelle Informationen</p>
+      <p class="updates__date">Letzte Aktualisierung: 29.06.2026</p>
+      <p class="updates__text">
+        Hier informieren wir euch über eventuelle Änderungen oder wichtige
+        Hinweise zum Polterabend.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- 9 · FOOTER HERO -->
+  <footer class="footer-hero">
+    <div class="footer-hero__overlay"></div>
+    <div class="footer-hero__content reveal">
+      <img class="footer-logo" src="CundT_Logo.png" alt="Logo Christina und Timo" />
+      <h2 class="footer-hero__title">Wir freuen uns auf einen unvergesslichen Abend mit euch.</h2>
+      <p class="footer-hero__sign">Christina + Timo</p>
+      <p class="footer-hero__date">19. September 2026</p>
+    </div>
+  </footer>
+
+
+  <!-- MODAL: Mitbringliste-Eintrag -->
+  <div class="bl-modal" id="claimModal" hidden>
+    <div class="bl-modal__overlay" data-close></div>
+    <div class="bl-modal__box" role="dialog" aria-modal="true" aria-labelledby="claimTitle">
+      <button class="bl-modal__close" type="button" data-close aria-label="Schließen">×</button>
+      <p class="eyebrow">Ich bringe mit</p>
+      <h3 class="bl-modal__title" id="claimTitle">Titel</h3>
+      <p class="bl-modal__sub" id="claimSub">Noch offen</p>
+
+      <form id="claimForm" novalidate>
+        <label class="bl-field">
+          <span class="bl-field__label">Name *</span>
+          <input class="bl-input" type="text" id="cName" autocomplete="name" required />
+        </label>
+        <label class="bl-field">
+          <span class="bl-field__label">Menge</span>
+          <input class="bl-input" type="number" id="cQty" min="1" step="1" value="1" />
+        </label>
+        <label class="bl-field">
+          <span class="bl-field__label">Kommentar (optional)</span>
+          <textarea class="bl-textarea" id="cComment" rows="3" placeholder="z. B. ich bringe einen Apfelkuchen"></textarea>
+        </label>
+        <p class="bl-form__error"   id="claimError"   hidden></p>
+        <p class="bl-form__success" id="claimSuccess" hidden></p>
+        <button class="btn btn--primary" type="submit" id="claimSubmit">Eintragen</button>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="main.js"></script>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="bringlist.js"></script>
+  <script src="rsvp.js"></script>
+</body>
+</html>

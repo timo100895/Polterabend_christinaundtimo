@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-label="Monogramm Christina und Timo">
+  <!-- Feiner, unten links weit offener Kreis -->
+  <path d="M 18.31 122.15 A 82 82 0 1 1 85.76 195.75"
+        fill="none" stroke="#8c8a58" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- Initialen C und T, überlappend (wirken wie eine Linie) -->
+  <text x="84" y="98" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+        font-weight="500" font-size="92" fill="#8c8a58">C</text>
+  <text x="116" y="140" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+        font-weight="500" font-size="92" fill="#8c8a58">T</text>
+</svg>

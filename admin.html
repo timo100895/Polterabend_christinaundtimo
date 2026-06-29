@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin · Polterabend</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" type="image/png" href="CundT_Logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="bringlist.css" />
+</head>
+<body>
+
+  <!-- Top-Bar -->
+  <header class="bl-topbar">
+    <div class="bl-topbar__inner">
+      <a class="bl-topbar__logo" href="index.html" aria-label="Zur Startseite">
+        <img src="CundT_Logo.png" alt="Logo Christina und Timo" />
+      </a>
+      <a class="bl-topbar__back" href="bringlist.html">← Zur Mitbringliste</a>
+    </div>
+  </header>
+
+  <!-- LOGIN (wird ausgeblendet, sobald eingeloggt) -->
+  <section class="bl-login" id="loginView">
+    <h1>Admin</h1>
+    <p>Bitte Passwort eingeben, um die Mitbringliste zu verwalten.</p>
+    <form id="loginForm">
+      <label class="bl-field">
+        <span class="bl-field__label">Passwort</span>
+        <input class="bl-input" type="password" id="adminPass" autocomplete="current-password" />
+      </label>
+      <p class="bl-form__error" id="loginError" hidden></p>
+      <button class="btn btn--primary" type="submit">Anmelden</button>
+    </form>
+  </section>
+
+  <!-- ADMIN-PANEL (erst nach Login sichtbar) -->
+  <main class="container" id="adminView" hidden>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px 0;border-bottom:1px solid var(--color-line);">
+      <h1 style="font-size:clamp(30px,4vw,46px);">Mitbringliste verwalten</h1>
+      <button class="btn btn--ghost btn--mini" type="button" id="logoutBtn">Abmelden</button>
+    </div>
+
+    <p class="bl-status" id="adminStatus" role="status" aria-live="polite"></p>
+
+    <!-- Anmeldungen (RSVP) -->
+    <section class="admin-section" id="rsvpAdmin">
+      <h2>Anmeldungen</h2>
+
+      <div class="rsvp-summary" id="rsvpSummary"></div>
+
+      <div class="rsvp-filters">
+        <button class="btn btn--ghost btn--mini is-active" type="button" data-filter="all">Alle</button>
+        <button class="btn btn--ghost btn--mini" type="button" data-filter="yes">Zusagen</button>
+        <button class="btn btn--ghost btn--mini" type="button" data-filter="no">Absagen</button>
+        <button class="btn btn--primary btn--mini" type="button" id="rsvpCsvBtn">CSV exportieren</button>
+      </div>
+
+      <div id="rsvpList"></div>
+    </section>
+
+    <!-- Neues Item -->
+    <section class="admin-section">
+      <h2>Neuen Mitbringpunkt anlegen</h2>
+      <form class="admin-form" id="newItemForm">
+        <label class="bl-field">
+          <span class="bl-field__label">Titel *</span>
+          <input class="bl-input" type="text" id="niTitle" required />
+        </label>
+        <label class="bl-field">
+          <span class="bl-field__label">Beschreibung</span>
+          <textarea class="bl-textarea" id="niDesc" rows="2"></textarea>
+        </label>
+        <div class="admin-inline">
+          <label class="bl-field">
+            <span class="bl-field__label">Benötigte Anzahl *</span>
+            <input class="bl-input" type="number" id="niQty" min="1" step="1" value="1" required />
+          </label>
+          <label class="bl-field">
+            <span class="bl-field__label">Sortierung</span>
+            <input class="bl-input" type="number" id="niSort" step="1" value="0" />
+          </label>
+        </div>
+        <label class="admin-check">
+          <input type="checkbox" id="niActive" checked /> aktiv (für Gäste sichtbar)
+        </label>
+        <p class="bl-form__error" id="newItemError" hidden></p>
+        <div style="margin-top:18px;">
+          <button class="btn btn--primary" type="submit">Punkt hinzufügen</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Vorhandene Items -->
+    <section class="admin-section">
+      <h2>Vorhandene Punkte &amp; Beiträge</h2>
+      <div id="adminList"></div>
+    </section>
+
+  </main>
+
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

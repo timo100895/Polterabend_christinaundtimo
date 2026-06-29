@@ -1,0 +1,311 @@
+/* =================================================================
+   MITBRINGLISTE & ADMIN · Styles
+   Passend zur Hochzeitswebsite (Fine-Art / Editorial)
+   Keine Rundungen, keine Schatten, feine Linien.
+   ================================================================= */
+
+:root {
+  --color-cream:     #f8f6f2;
+  --color-white:     #ffffff;
+  --color-ink:       #1f1f1f;
+  --color-body:      #666666;
+  --color-gold:      #8c8a58;            /* Olivgold (wie Logo/Einladung) */
+  --color-gold-warm: #c8a46b;            /* warmes Gold für Fortschritt */
+  --color-sage:      #5f6b4f;
+  --color-sage-dark: #4f5a42;
+  --color-line:      rgba(140,138,88,0.32);
+  --color-line-soft: rgba(31,31,31,0.10);
+
+  --font-head: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container: 920px;
+  --gutter: clamp(20px, 5vw, 48px);
+  --transition: 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.05vw, 18px);
+  line-height: 1.7;
+  color: var(--color-body);
+  background-color: var(--color-cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-head); color: var(--color-ink); font-weight: 500; margin: 0; line-height: 1.1; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.eyebrow {
+  display: inline-block;
+  font-size: 13px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 5px;
+  color: var(--color-gold); margin: 0 0 16px;
+}
+
+/* --- Buttons (wie Hauptseite) --- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 34px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition),
+              border-color var(--transition), transform var(--transition);
+}
+.btn--primary { background-color: var(--color-sage); color: #fff; }
+.btn--primary:hover:not(:disabled) { background-color: var(--color-sage-dark); transform: translateY(-2px); }
+.btn--ghost { background: transparent; color: var(--color-ink); border-color: var(--color-line); }
+.btn--ghost:hover { border-color: var(--color-gold); color: var(--color-gold); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+
+/* =================================================================
+   TOP-BAR
+   ================================================================= */
+.bl-topbar {
+  position: sticky; top: 0; z-index: 40;
+  background-color: rgba(248,246,242,0.92);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--color-line);
+}
+.bl-topbar__inner {
+  max-width: var(--container); margin-inline: auto;
+  padding: 12px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.bl-topbar__logo img { height: 42px; width: auto; }
+.bl-topbar__back {
+  font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none; color: var(--color-body);
+  transition: color var(--transition);
+}
+.bl-topbar__back:hover { color: var(--color-gold); }
+
+
+/* =================================================================
+   INTRO
+   ================================================================= */
+.bl-intro { text-align: center; padding: clamp(48px, 8vw, 96px) 0 clamp(24px, 4vw, 40px); }
+.bl-intro h1 { font-size: clamp(40px, 7vw, 80px); margin-bottom: 0.3em; }
+.bl-intro p { max-width: 600px; margin: 0 auto; color: var(--color-body); }
+
+
+/* =================================================================
+   STATUS / MELDUNGEN
+   ================================================================= */
+.bl-status {
+  text-align: center;
+  padding: 14px var(--gutter);
+  font-size: 15px; letter-spacing: 0.5px;
+  color: var(--color-body);
+}
+.bl-status--error { color: #9a3b2f; }
+.bl-banner {
+  max-width: var(--container); margin: 0 auto clamp(20px,3vw,32px);
+  border: 1px solid var(--color-line);
+  padding: 18px var(--gutter);
+  text-align: center; font-size: 15px; color: var(--color-ink);
+  background: var(--color-white);
+}
+
+
+/* =================================================================
+   LISTE / ITEMS
+   ================================================================= */
+.bl-list { padding-bottom: clamp(60px, 9vw, 120px); }
+
+.bl-item {
+  border-top: 1px solid var(--color-line);
+  padding: clamp(28px, 4vw, 44px) 0;
+}
+.bl-item:last-child { border-bottom: 1px solid var(--color-line); }
+
+.bl-item__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  margin-bottom: 6px;
+}
+.bl-item__title { font-size: clamp(26px, 3.4vw, 38px); }
+.bl-item__status {
+  flex: 0 0 auto;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--color-gold);
+}
+.bl-item__desc { margin: 0 0 18px; color: var(--color-body); }
+
+.bl-item__meta {
+  display: flex; flex-wrap: wrap; gap: 8px 28px;
+  font-size: 14px; letter-spacing: 0.5px; color: var(--color-ink);
+  margin-bottom: 12px;
+}
+.bl-item__meta strong { font-weight: 500; }
+
+/* Fortschrittsbalken */
+.bl-progress {
+  height: 4px; width: 100%;
+  background: var(--color-line-soft);
+  margin-bottom: 16px;
+}
+.bl-progress__bar {
+  height: 100%; width: 0;
+  background: var(--color-gold-warm);
+  transition: width 0.6s cubic-bezier(0.22,0.61,0.36,1);
+}
+
+.bl-item__names {
+  font-size: 15px; color: var(--color-body); margin: 0 0 20px;
+}
+.bl-item__names .nobody { font-style: italic; }
+
+/* vollständige Items dezenter */
+.bl-item.is-complete { opacity: 0.62; }
+.bl-item.is-complete .bl-item__status { color: var(--color-sage); }
+.bl-item.is-complete .bl-progress__bar { background: var(--color-sage); }
+
+
+/* =================================================================
+   MODAL (Eintragen)
+   ================================================================= */
+.bl-modal { position: fixed; inset: 0; z-index: 100; display: flex; }
+.bl-modal[hidden] { display: none; }
+.bl-modal__overlay {
+  position: absolute; inset: 0;
+  background: rgba(31,31,31,0.55);
+}
+.bl-modal__box {
+  position: relative; margin: auto;
+  width: min(520px, calc(100% - 32px));
+  max-height: calc(100% - 48px); overflow-y: auto;
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  padding: clamp(28px, 5vw, 48px);
+}
+.bl-modal__close {
+  position: absolute; top: 12px; right: 14px;
+  background: none; border: 0; cursor: pointer;
+  font-size: 26px; line-height: 1; color: var(--color-body);
+}
+.bl-modal__close:hover { color: var(--color-ink); }
+.bl-modal__title { font-size: clamp(26px, 4vw, 34px); margin-bottom: 6px; }
+.bl-modal__sub { margin: 0 0 24px; font-size: 15px; color: var(--color-body); }
+
+/* Formular */
+.bl-field { display: block; margin-bottom: 18px; }
+.bl-field__label {
+  display: block; font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--color-ink); margin-bottom: 8px;
+}
+.bl-input, .bl-textarea {
+  width: 100%; font-family: var(--font-body); font-size: 16px;
+  color: var(--color-ink); background: var(--color-cream);
+  border: 1px solid var(--color-line); border-radius: 0;
+  padding: 12px 14px;
+}
+.bl-textarea { resize: vertical; }
+.bl-input:focus, .bl-textarea:focus { border-color: var(--color-gold); }
+
+.bl-form__error {
+  color: #9a3b2f; font-size: 14px; margin: 0 0 16px;
+}
+.bl-form__success {
+  color: var(--color-sage); font-size: 14px; margin: 0 0 16px;
+}
+.bl-modal .btn { width: 100%; text-align: center; }
+
+
+/* =================================================================
+   FOOTER
+   ================================================================= */
+.bl-foot {
+  text-align: center; padding: clamp(32px,5vw,56px) var(--gutter);
+  border-top: 1px solid var(--color-line);
+  font-size: 14px; color: var(--color-body);
+}
+.bl-foot a { color: var(--color-gold); text-decoration: none; }
+
+
+/* =================================================================
+   ADMIN-SPEZIFISCH
+   ================================================================= */
+.bl-login { max-width: 420px; margin: clamp(60px,12vh,140px) auto; text-align: center; padding-inline: var(--gutter); }
+.bl-login h1 { font-size: clamp(34px,5vw,52px); margin-bottom: 10px; }
+.bl-login p { margin-bottom: 26px; }
+
+.admin-section { padding: clamp(36px,6vw,72px) 0; border-top: 1px solid var(--color-line); }
+.admin-section:first-of-type { border-top: 0; }
+.admin-section h2 { font-size: clamp(26px,3.6vw,40px); margin-bottom: 24px; }
+
+.admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.admin-row {
+  border: 1px solid var(--color-line);
+  padding: 18px 20px; margin-bottom: 16px;
+  background: var(--color-white);
+}
+.admin-row__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.admin-row__title { font-size: 24px; }
+.admin-row__small { font-size: 13px; color: var(--color-body); }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+.btn--mini {
+  font-size: 12px; letter-spacing: 1px; padding: 9px 16px;
+}
+.btn--danger { background: #8a3a2e; color: #fff; }
+.btn--danger:hover:not(:disabled) { background: #732f25; transform: translateY(-2px); }
+
+.admin-contrib {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  border-top: 1px solid var(--color-line-soft);
+  padding: 10px 0; font-size: 15px; color: var(--color-ink);
+}
+.admin-contrib:first-of-type { margin-top: 12px; }
+.admin-contrib__del {
+  background: none; border: 0; cursor: pointer;
+  color: #8a3a2e; font-size: 13px; letter-spacing: 0.5px;
+}
+.admin-contrib__del:hover { text-decoration: underline; }
+
+.admin-form .bl-field { margin-bottom: 16px; }
+.admin-inline { display: flex; gap: 16px; flex-wrap: wrap; }
+.admin-inline .bl-field { flex: 1 1 160px; }
+.admin-check { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--color-ink); }
+
+/* RSVP-Admin: Übersicht & Filter */
+.rsvp-summary {
+  display: flex; flex-wrap: wrap; gap: 10px 28px;
+  margin-bottom: 22px; padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-line);
+}
+.rsvp-stat { font-size: 15px; color: var(--color-body); }
+.rsvp-stat strong {
+  font-family: var(--font-head); font-weight: 500;
+  font-size: 26px; color: var(--color-ink); margin-right: 5px;
+}
+.rsvp-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+.btn--mini.is-active { background: var(--color-gold); color: #fff; border-color: var(--color-gold); }
+
+
+/* =================================================================
+   RESPONSIVE
+   ================================================================= */
+@media (max-width: 640px) {
+  .admin-grid { grid-template-columns: 1fr; }
+  .bl-item__head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .btn { width: 100%; text-align: center; }
+  .bl-topbar__logo img { height: 36px; }
+}

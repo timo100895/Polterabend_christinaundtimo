@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mitbringliste · Polterabend · Christina &amp; Timo</title>
+  <meta name="description" content="Mitbringliste zum Polterabend von Christina und Timo – tragt euch ein, was ihr mitbringt." />
+
+  <link rel="icon" type="image/png" href="CundT_Logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="bringlist.css" />
+</head>
+<body>
+
+  <!-- Top-Bar -->
+  <header class="bl-topbar">
+    <div class="bl-topbar__inner">
+      <a class="bl-topbar__logo" href="index.html" aria-label="Zur Startseite">
+        <img src="CundT_Logo.png" alt="Logo Christina und Timo" />
+      </a>
+      <a class="bl-topbar__back" href="index.html">← Zur Startseite</a>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="bl-intro">
+    <div class="container">
+      <p class="eyebrow">Buffet &amp; Mitbringen</p>
+      <h1>Mitbringliste</h1>
+      <p>
+        Ihr möchtet etwas zum Buffet beisteuern? Wunderbar! Hier seht ihr, was
+        noch gebraucht wird. Tragt euch einfach mit eurem Namen ein – sobald ein
+        Punkt vollständig vergeben ist, schließt er automatisch.
+      </p>
+    </div>
+  </section>
+
+  <!-- Status / Ladezustand / Meldungen -->
+  <p class="bl-status" id="blStatus" role="status" aria-live="polite">Lädt …</p>
+
+  <!-- Liste der Mitbringpunkte (wird per JS gefüllt) -->
+  <main class="bl-list">
+    <div class="container" id="blList"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bl-foot">
+    <p>Christina + Timo · Polterabend · 19. September 2026 — <a href="index.html">zur Startseite</a></p>
+  </footer>
+
+
+  <!-- =============================================================
+       MODAL: Eintragen
+       ============================================================= -->
+  <div class="bl-modal" id="claimModal" hidden>
+    <div class="bl-modal__overlay" data-close></div>
+    <div class="bl-modal__box" role="dialog" aria-modal="true" aria-labelledby="claimTitle">
+      <button class="bl-modal__close" type="button" data-close aria-label="Schließen">×</button>
+      <p class="eyebrow">Ich bringe mit</p>
+      <h3 class="bl-modal__title" id="claimTitle">Titel</h3>
+      <p class="bl-modal__sub" id="claimSub">Noch offen</p>
+
+      <form id="claimForm" novalidate>
+        <label class="bl-field">
+          <span class="bl-field__label">Name *</span>
+          <input class="bl-input" type="text" id="cName" autocomplete="name" required />
+        </label>
+
+        <label class="bl-field">
+          <span class="bl-field__label">Menge</span>
+          <input class="bl-input" type="number" id="cQty" min="1" step="1" value="1" />
+        </label>
+
+        <label class="bl-field">
+          <span class="bl-field__label">Kommentar (optional)</span>
+          <textarea class="bl-textarea" id="cComment" rows="3" placeholder="z. B. ich bringe einen Apfelkuchen"></textarea>
+        </label>
+
+        <p class="bl-form__error"   id="claimError"   hidden></p>
+        <p class="bl-form__success" id="claimSuccess" hidden></p>
+
+        <button class="btn btn--primary" type="submit" id="claimSubmit">Eintragen</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Reihenfolge wichtig: 1) Config  2) Supabase  3) eigenes Script -->
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="bringlist.js"></script>
+</body>
+</html>
