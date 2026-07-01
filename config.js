@@ -22,11 +22,6 @@ window.BRINGLIST_CONFIG = {
   /* 3) Admin-Passwort für admin.html
         ACHTUNG: Dies ist nur ein einfacher Schutz im Browser,
         KEIN hochsicherer Schutz (siehe README). Bitte ändern! */
-  ADMIN_PASSWORD: "Hochzeit2026",
-
-  /* 4) Veranstaltung: "wedding" (Hochzeitsseite) oder "polterabend".
-        Damit teilen sich beide Seiten dieselbe Datenbank, ohne dass
-        sich die Daten vermischen. */
-  EVENT_TYPE: "polterabend"
+  ADMIN_PASSWORD: "Hochzeit2026"
 
 };

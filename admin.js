@@ -7,7 +7,6 @@
   "use strict";
 
   var cfg = window.BRINGLIST_CONFIG || {};
-  var EVENT_TYPE = cfg.EVENT_TYPE || "wedding";   // wedding / polterabend
 
   var loginView  = document.getElementById("loginView");
   var adminView  = document.getElementById("adminView");
@@ -92,7 +91,7 @@
     if (!sb) return;
     setStatus("Lädt …");
     Promise.all([
-      sb.from("bring_items").select("*").eq("event_type", EVENT_TYPE).order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
+      sb.from("bring_items").select("*").order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
       sb.from("bring_contributions").select("*").order("created_at", { ascending: true })
     ]).then(function (res) {
       if (res[0].error) throw res[0].error;
@@ -163,8 +162,7 @@
 
     sb.from("bring_items").insert({
       title: title, description: desc || null,
-      required_quantity: qty, sort_order: sort, is_active: active,
-      event_type: EVENT_TYPE
+      required_quantity: qty, sort_order: sort, is_active: active
     }).then(function (res) {
       if (res.error) throw res.error;
       newForm.reset();
@@ -222,7 +220,7 @@
 
   function loadRsvp() {
     if (!sb || !rsvpList) return;
-    sb.from("rsvp_responses").select("*").eq("event_type", EVENT_TYPE).order("created_at", { ascending: false })
+    sb.from("rsvp_responses").select("*").order("created_at", { ascending: false })
       .then(function (res) {
         if (res.error) throw res.error;
         rsvpData = res.data || [];

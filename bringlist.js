@@ -27,9 +27,6 @@
   var SB_URL = (cfg.SUPABASE_URL || "").trim().replace(/\/+$/, "").replace(/\/rest\/v1$/i, "");
   var sb = window.supabase.createClient(SB_URL, cfg.SUPABASE_ANON_KEY);
 
-  // Veranstaltung (wedding / polterabend) – trennt die Daten in derselben DB
-  var EVENT_TYPE = cfg.EVENT_TYPE || "wedding";
-
   /* --- Modal-Elemente --- */
   var modal       = document.getElementById("claimModal");
   var form        = document.getElementById("claimForm");
@@ -63,7 +60,7 @@
      =============================================================== */
   function load() {
     return Promise.all([
-      sb.from("bring_items").select("*").eq("is_active", true).eq("event_type", EVENT_TYPE).order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
+      sb.from("bring_items").select("*").eq("is_active", true).order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
       sb.from("bring_contributions").select("*").order("created_at", { ascending: true })
     ]).then(function (res) {
       var itemsRes = res[0], contribRes = res[1];

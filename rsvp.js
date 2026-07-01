@@ -43,9 +43,6 @@
   var SB_URL = (cfg.SUPABASE_URL || "").trim().replace(/\/+$/, "").replace(/\/rest\/v1$/i, "");
   var sb = window.supabase.createClient(SB_URL, cfg.SUPABASE_ANON_KEY);
 
-  // Veranstaltung (wedding / polterabend)
-  var EVENT_TYPE = cfg.EVENT_TYPE || "wedding";
-
   /* --- Zusage-Felder ein-/ausblenden --- */
   function getAttending() {
     var checked = form.querySelector('input[name="attending"]:checked');
@@ -79,7 +76,6 @@
     var attending = att === "yes";
 
     var record = {
-      event_type: EVENT_TYPE,
       first_name: first,
       last_name: last,
       attending: attending,
