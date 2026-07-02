@@ -35,10 +35,10 @@ set search_path = public
 as $$
 declare
   -- >>> HIER DEINEN RESEND-API-KEY EINTRAGEN <<<
-  v_api_key text := 'RESEND_API_KEY_HIER';
+  v_api_key text := 're_8hnc2zJy_AAyz41ocizKY1wETx8HvHDW7';
 
   -- Empfänger & Absender (bei Bedarf anpassen)
-  v_to   text := 'timo_reith@t-online.de';
+  v_to   text := 'timo100895@gmail.com';
   v_from text := 'Hochzeit C&T <onboarding@resend.dev>';
 begin
   -- Solange kein Key eingetragen ist: nichts tun (keine Fehler).
