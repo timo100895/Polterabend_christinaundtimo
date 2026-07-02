@@ -288,7 +288,7 @@ Startseite oder direkt für `…/bringlist.html`.
 
 ## E-Mail-Benachrichtigung bei Anmeldung / Mitbringen
 
-Du möchtest automatisch eine E-Mail an `timo_reith@t-online.de` bekommen, sobald
+Du möchtest automatisch eine E-Mail an `timo100895@gmail.com` bekommen, sobald
 sich jemand anmeldet **oder** etwas in der Mitbringliste auswählt? Das übernimmt
 Supabase per Datenbank-Trigger und versendet die Mail über den kostenlosen Dienst
 **Resend**. (Eine statische Seite kann selbst keine Mails verschicken – die
@@ -296,7 +296,7 @@ Server-Zugangsdaten dürfen nie ins Frontend.)
 
 ### Schritt 1 · Bei Resend registrieren
 1. Auf [resend.com](https://resend.com) registrieren – **mit der Adresse
-   `timo_reith@t-online.de`** (wichtig, damit der Versand ohne eigene Domain an
+   `timo100895@gmail.com`** (wichtig, damit der Versand ohne eigene Domain an
    genau diese Adresse erlaubt ist).
 2. Postfach bestätigen.
 

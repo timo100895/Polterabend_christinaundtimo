@@ -87,6 +87,10 @@
   /* ===============================================================
      Daten laden & rendern
      =============================================================== */
+  // Für den Excel-Export zwischengespeicherte Daten
+  var itemsData = [];
+  var contribData = [];
+
   function load() {
     if (!sb) return;
     setStatus("Lädt …");
@@ -96,7 +100,9 @@
     ]).then(function (res) {
       if (res[0].error) throw res[0].error;
       if (res[1].error) throw res[1].error;
-      renderAdmin(res[0].data || [], res[1].data || []);
+      itemsData = res[0].data || [];
+      contribData = res[1].data || [];
+      renderAdmin(itemsData, contribData);
       setStatus("");
     }).catch(function (err) {
       console.error(err);
@@ -302,31 +308,51 @@
     });
   }
 
-  // CSV-Export
+  // Export: Excel-Datei (.xlsx) mit ZWEI Arbeitsblättern:
+  //   Blatt 1 "Anmeldungen"  ·  Blatt 2 "Mitbringliste"
   var csvBtn = document.getElementById("rsvpCsvBtn");
   if (csvBtn) {
     csvBtn.addEventListener("click", function () {
-      if (!rsvpData.length) { setStatus("Keine Anmeldungen zum Exportieren.", false); return; }
-      var cols = ["first_name","last_name","attending","adults","children","children_ages","food_preferences","allergies","message","created_at"];
-      var head = ["Vorname","Nachname","Teilnahme","Erwachsene","Kinder","Kinder-Alter","Essenswünsche","Allergien","Nachricht","Erstellt"];
-      function cell(v) {
-        if (v === null || v === undefined) v = "";
-        if (typeof v === "boolean") v = v ? "Zusage" : "Absage";
-        v = String(v).replace(/"/g, '""');
-        return '"' + v + '"';
-      }
-      var lines = [head.map(cell).join(";")];
-      rsvpData.forEach(function (r) {
-        lines.push(cols.map(function (c) { return cell(r[c]); }).join(";"));
+      if (typeof XLSX === "undefined") { setStatus("Export-Bibliothek konnte nicht geladen werden.", true); return; }
+      if (!rsvpData.length && !contribData.length) { setStatus("Keine Daten zum Exportieren.", false); return; }
+
+      var fmtDate = function (d) { try { return d ? new Date(d).toLocaleString("de-DE") : ""; } catch (e) { return ""; } };
+
+      // --- Blatt 1: Anmeldungen ---
+      var rsvpRows = rsvpData.map(function (r) {
+        return {
+          "Vorname": r.first_name || "",
+          "Nachname": r.last_name || "",
+          "Teilnahme": r.attending ? "Zusage" : "Absage",
+          "Erwachsene": r.adults || 0,
+          "Kinder": r.children || 0,
+          "Kinder-Alter": r.children_ages || "",
+          "Essenswünsche": r.food_preferences || "",
+          "Allergien": r.allergies || "",
+          "Nachricht": r.message || "",
+          "Erstellt": fmtDate(r.created_at)
+        };
       });
-      // BOM für korrekte Umlaute in Excel
-      var blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement("a");
-      a.href = url;
-      a.download = "anmeldungen.csv";
-      document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      if (!rsvpRows.length) rsvpRows = [{ "Vorname":"","Nachname":"","Teilnahme":"","Erwachsene":"","Kinder":"","Kinder-Alter":"","Essenswünsche":"","Allergien":"","Nachricht":"","Erstellt":"" }];
+
+      // --- Blatt 2: Mitbringliste ---
+      var titleById = {};
+      itemsData.forEach(function (it) { titleById[it.id] = it.title; });
+      var contribRows = contribData.map(function (c) {
+        return {
+          "Mitbringpunkt": titleById[c.item_id] || "",
+          "Name": c.guest_name || "",
+          "Menge": c.quantity || 0,
+          "Kommentar": c.comment || "",
+          "Erstellt": fmtDate(c.created_at)
+        };
+      });
+      if (!contribRows.length) contribRows = [{ "Mitbringpunkt":"","Name":"","Menge":"","Kommentar":"","Erstellt":"" }];
+
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(rsvpRows), "Anmeldungen");
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(contribRows), "Mitbringliste");
+      XLSX.writeFile(wb, "anmeldungen-mitbringliste.xlsx");
     });
   }
 
