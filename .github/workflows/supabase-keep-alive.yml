@@ -12,7 +12,17 @@ jobs:
     steps:
       - name: Ping Supabase
         run: |
-          curl \
+          status=$(curl \
+            --silent \
+            --output /dev/null \
+            --write-out "%{http_code}" \
             "${{ secrets.SUPABASE_URL }}/rest/v1/bring_items?select=id&limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+
+          echo "HTTP Status: $status"
+
+          if [ "$status" != "200" ]; then
+            echo "Supabase konnte nicht erreicht werden."
+            exit 1
+          fi
